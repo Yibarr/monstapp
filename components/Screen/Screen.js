@@ -23,12 +23,13 @@ export class Screen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            logged:true
+            logged:false
         };
       }
 
     componentSelection(){
-        return  store.getState() ? <ImgUpload/> : <Login logged={action}/>
+        console.log(store.getState())
+        return  this.state.logged ? <ImgUpload/> : <Login logged={action('LOG')}/>
     }  
 
     render() {

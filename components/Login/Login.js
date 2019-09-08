@@ -1,4 +1,4 @@
-import React, { Component,Fragment,PropTypes } from 'react'
+import React, { Component,Fragment } from 'react'
 
 import {
     StyleSheet,
@@ -7,10 +7,8 @@ import {
     TextInput,
     Button
   } from 'react-native';
+import { CLIENT_RENEG_LIMIT } from 'tls';
 
-
-
-import { createStore, applyMiddleware } from 'redux'
 export class Login extends Component {
     constructor(props) {
         super(props);
@@ -28,7 +26,7 @@ export class Login extends Component {
                     <View style={styles.logoCont}>
                         <Text style={styles.bienvenido}>bienvenido</Text>
                     </View>
-                    <View style={styles.userData}>
+                    <View>
                         <View style={styles.inputCont}>
                             <View style={styles.InputIconCont}/>
                             <TextInput
@@ -52,7 +50,9 @@ export class Login extends Component {
                     <View style={styles.loginBtn}>
                         <Button
                             style={{backgroundColor:'#000',borderRadius:20}}
-                            onPress={()=>{this.props.logged('LOG')}}
+                            onPress={() => {
+                                return this.props.logged
+                            }}
                             title="Iniciar sesión"
                             color='#000'
                         />
@@ -62,8 +62,6 @@ export class Login extends Component {
         )
     }
 }
-
-
 
 const styles = StyleSheet.create({
     logoCont:{
@@ -109,12 +107,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#000',
         color:'#FFF',
         borderRadius:15
-    },
-    userData:{
-        marginBottom:50
     }
   });
 
 export default Login
-
-
