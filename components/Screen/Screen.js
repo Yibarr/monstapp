@@ -8,8 +8,9 @@ import {
     Button
   } from 'react-native';
 
-import Login from '../Login/Login'
+// import Login from '../Login/Login'
 import ImgUpload from '../ImgUpload/ImgUpload'
+import Login from '../Login/Login';
 
 export class Screen extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ export class Screen extends Component {
       }
 
     componentSelection(){
-        return !this.state.logged ? <ImgUpload/> : <Login/>
+        return  this.state.logged ? <ImgUpload/> : <Login/>
     }  
 
     render() {
@@ -28,6 +29,7 @@ export class Screen extends Component {
             <Fragment>
                 {this.componentSelection()}
             </Fragment>
+
         )
     }
 }

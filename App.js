@@ -28,15 +28,15 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import LinearGradient from "react-native-linear-gradient";
-// import Screen from './components/Screen/Screen'
-import Login from './components/Login/Login'
+import Screen from './components/Screen/Screen'
+// import Login from './components/Login/Login'
 
 const App = () => {
   return (
     <LinearGradient colors={['#FD3E40','#C6245F','#960E7A']} style={styles.app_bg}>
       <StatusBar backgroundColor="#FD3E40" barStyle="light-content" />
       <View>
-        <Login/>
+        <Screen/>
       </View>
     </LinearGradient>
   );
