@@ -4,7 +4,8 @@ import {
     StyleSheet,
     View,
     Text,
-    TextInput
+    TextInput,
+    Button
   } from 'react-native';
 
 export class Login extends Component {
@@ -21,30 +22,39 @@ export class Login extends Component {
         return (
             <Fragment>
                 <View style={styles.loginContainer}>
-                    <View>
+                    <View style={styles.logoCont}>
                         <Text style={styles.bienvenido}>bienvenido</Text>
                     </View>
                     <View>
-                        <View>
-                        <TextInput
-                            style={styles.loginInput}
-                            placeholder="Type yout username!"
-                            onChangeText={(text) => this.setState({text})}
-                            value={this.state.username}
+                        <View style={styles.inputCont}>
+                            <View style={styles.InputIconCont}/>
+                            <TextInput
+                                style={styles.loginInput}
+                                placeholder="Usuario"
+                                onChangeText={(username) => this.setState({username})}
+                                value={this.state.username}
+                            />
+                        </View>
+                        <View style={styles.inputCont}>
+                            <View style={styles.InputIconCont}/>
+                            <TextInput
+                                style={styles.loginInput}
+                                secureTextEntry={true}
+                                placeholder="Contraseña"
+                                onChangeText={(password) => this.setState({password})}
+                                value={this.state.password}
+                            />
+                        </View>    
+                    </View>
+                    <View style={styles.loginBtn}>
+                        <Button
+                            style={{backgroundColor:'#000',borderRadius:20}}
+                            onPress={() => {
+                                alert('You tapped the button!');
+                            }}
+                            title="Iniciar sesión"
+                            color='#000'
                         />
-                        </View>
-                        <View>
-                        <View style={styles.inputIconCont}>
-                            <Text style={styles.inputIconCont}> o</Text>
-                        </View>
-                        <TextInput
-                            style={styles.loginInput}
-                            secureTextEntry={true}
-                            placeholder="Type your password"
-                            onChangeText={(text) => this.setState({text})}
-                            value={this.state.password}
-                        />
-                        </View>
                     </View>
                 </View>
             </Fragment>
@@ -53,11 +63,14 @@ export class Login extends Component {
 }
 
 const styles = StyleSheet.create({
+    logoCont:{
+        marginBottom:80
+    },
     bienvenido:{
       fontSize:50,
       alignSelf:'center',
       color:'#FFF',
-      fontWeight:'100'
+      fontWeight:'200'
     },
     loginContainer:{
       display:'flex',
@@ -65,16 +78,34 @@ const styles = StyleSheet.create({
       width:'100%',
     },
     loginInput:{
-      height:40,
-      width:300,
+      height:50,
+      width:200,
       backgroundColor:'#FFF',
       alignSelf:'center',
+      borderBottomRightRadius:10,
+      borderTopRightRadius:10,
+      marginBottom:10,
+      fontSize:15,
     },
     InputIconCont:{
-      backgroundColor:'black',
-      height:40,
-      width:40,
-      zIndex:3
+        width: 50,
+        height: 50,
+        backgroundColor: '#000',
+        borderBottomLeftRadius:10,
+        borderTopLeftRadius:10
+    },
+    inputCont:{
+        flexDirection: 'row',
+        alignSelf:'center'
+    },
+    loginBtn:{
+        width:150,
+        alignSelf:'center'
+    },
+    btn:{
+        backgroundColor:'#000',
+        color:'#FFF',
+        borderRadius:15
     }
   });
 
