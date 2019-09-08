@@ -46,16 +46,7 @@ export class Login extends Component {
                             />
                         </View>    
                     </View>
-                    <View style={styles.loginBtn}>
-                        <Button
-                            style={{backgroundColor:'#000',borderRadius:20}}
-                            onPress={() => {
-                                alert('You tapped the button!');
-                            }}
-                            title="Iniciar sesión"
-                            color='#000'
-                        />
-                    </View>
+                    
                 </View>
             </Fragment>
         )
