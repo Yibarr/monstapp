@@ -1,4 +1,5 @@
 import React, { Component,Fragment } from 'react'
+import { createStore, applyMiddleware, bindActionCreators } from 'redux'
 
 import {
     StyleSheet,
@@ -12,16 +13,22 @@ import {
 import ImgUpload from '../ImgUpload/ImgUpload'
 import Login from '../Login/Login';
 
+import reducer from '../../reducers/Log'
+
+const store = createStore(reducer)
+
+const action = type => store.dispatch({type})
+
 export class Screen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            logged:false
+            logged:true
         };
       }
 
     componentSelection(){
-        return  this.state.logged ? <ImgUpload/> : <Login/>
+        return  store.getState() ? <ImgUpload/> : <Login logged={action}/>
     }  
 
     render() {

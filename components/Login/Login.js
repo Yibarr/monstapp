@@ -1,4 +1,4 @@
-import React, { Component,Fragment } from 'react'
+import React, { Component,Fragment,PropTypes } from 'react'
 
 import {
     StyleSheet,
@@ -8,6 +8,9 @@ import {
     Button
   } from 'react-native';
 
+
+
+import { createStore, applyMiddleware } from 'redux'
 export class Login extends Component {
     constructor(props) {
         super(props);
@@ -49,9 +52,7 @@ export class Login extends Component {
                     <View style={styles.loginBtn}>
                         <Button
                             style={{backgroundColor:'#000',borderRadius:20}}
-                            onPress={() => {
-                                alert('You tapped the button!');
-                            }}
+                            onPress={()=>{this.props.logged('LOG')}}
                             title="Iniciar sesión"
                             color='#000'
                         />
@@ -61,6 +62,8 @@ export class Login extends Component {
         )
     }
 }
+
+
 
 const styles = StyleSheet.create({
     logoCont:{

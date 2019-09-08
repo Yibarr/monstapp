@@ -31,6 +31,14 @@ import LinearGradient from "react-native-linear-gradient";
 import Screen from './components/Screen/Screen'
 // import Login from './components/Login/Login'
 
+import reducer from './reducers/Log.js'
+
+import { createStore, applyMiddleware } from 'redux'
+
+const store = createStore(reducer)
+
+
+console.log('perro')
 const App = () => {
   return (
     <LinearGradient colors={['#FD3E40','#C6245F','#960E7A']} style={styles.app_bg}>
