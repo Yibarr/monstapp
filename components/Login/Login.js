@@ -25,7 +25,7 @@ export class Login extends Component {
                     <View style={styles.logoCont}>
                         <Text style={styles.bienvenido}>bienvenido</Text>
                     </View>
-                    <View>
+                    <View style={styles.userData}>
                         <View style={styles.inputCont}>
                             <View style={styles.InputIconCont}/>
                             <TextInput
@@ -106,6 +106,9 @@ const styles = StyleSheet.create({
         backgroundColor:'#000',
         color:'#FFF',
         borderRadius:15
+    },
+    userData:{
+        marginBottom:50
     }
   });
 
