@@ -9,22 +9,24 @@ import {
   } from 'react-native';
 
 import Login from '../Login/Login'
-
+import ImgUpload from '../ImgUpload/ImgUpload'
 
 export class Screen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            password:''
+            logged:false
         };
       }
 
+    componentSelection(){
+        return !this.state.logged ? <ImgUpload/> : <Login/>
+    }  
 
     render() {
         return (
             <Fragment>
-                <Login/>
+                {this.componentSelection()}
             </Fragment>
         )
     }
