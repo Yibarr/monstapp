@@ -8,10 +8,10 @@ import {
     Button
   } from 'react-native';
 
-import Login from './components/Login/Login'
+import Login from '../Login/Login'
 
 
-export class Login extends Component {
+export class Screen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,7 +24,6 @@ export class Login extends Component {
     render() {
         return (
             <Fragment>
-                <Text>Hola</Text>
                 <Login/>
             </Fragment>
         )
@@ -35,4 +34,4 @@ const styles = StyleSheet.create({
     
   });
 
-export default Login
+export default Screen
